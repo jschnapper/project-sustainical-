@@ -53,6 +53,7 @@ body, html {
 }
 
 .nav-items {
+	color: black;
 	font-weight: 300;
 	display: inline-block;
 	cursor: pointer;
@@ -111,6 +112,7 @@ body, html {
 	height: 100%;
 	width: 960px;
 	margin: 0 auto;
+	padding-bottom: 56px;
 }
 
 #energy-chart {
@@ -219,6 +221,55 @@ body, html {
 	left: 20px;
 }
 
+#leaderboard-container {
+	position: absolute;
+	width: 80%;
+	font-size: 18px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 560px;
+	text-align: center;
+	padding: 24px;
+	margin-bottom: 100px;
+	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	border-radius: 4px;
+}
+
+.leaderboard-title {
+	font-size: 24px;
+	font-weight: 700;
+	display: inline-block;
+	margin: 0 auto;
+	padding: 12px;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+
+.leaderboard-title:nth-child(1) {
+	background-color: #2ecc71;
+    color: white;
+    border-radius: 4px;
+}
+
+.leaderboard-title:nth-child(2) {
+	opacity: 0.5;
+	transition: 0.2s;
+}
+
+.leaderboard-title:nth-child(2):hover {
+	transition: 0.2s;
+	opacity: 1;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+th {
+    background-color: #2ecc71;
+    color: white;
+}
+
 
 
 /*.label::before {
@@ -270,11 +321,20 @@ body, html {
 	float: right;
 }
 
+.cover {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
 .special {
+	color: white;
 	position: relative;
-	width: 48%;
+	width: 45%;
 	border: 1px solid transparent;
 	height: 250px;
+	padding: 12px;
 	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
 	border-radius: 4px;
 	cursor: pointer;
@@ -285,6 +345,27 @@ body, html {
 	border: 1px solid #2ecc71;
 	transition: 0.2s;
 	-webkit-transition: 0.2s;
+}
+
+.special:nth-child(1){
+	background-image: url(../img/quiz.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-origin: border-box;
+}
+
+.special:nth-child(2){
+	background-image: url(../img/event.jpeg);
+	background-size: cover;
+	background-position: center;
+	background-origin: border-box;
+
+}
+
+.special-title {
+	font-weight: 700;
+	font-size: 24px;
+	z-index: 20;
 }
 
 .line {
@@ -315,6 +396,47 @@ body, html {
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
 	cursor: pointer;
+}
+
+.article-image {
+	height: 80%;
+	width: 20%;
+	display: inline-block;
+	margin-left: 12px;
+	background-size: cover;
+	background-position: center;
+	background-origin: border-box;
+	border-radius: 4px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.first-image {
+	background-image: url(../img/plane.jpeg);
+}
+
+.second-image {
+	background-image: url(../img/cow.jpeg);
+}
+
+.third-image {
+	background-image: url(../img/conference.jpeg);
+}
+
+.fourth-image {
+	background-image: url(../img/group.jpg);
+}
+
+.article-details {
+	width: 60%;
+	position: relative;
+	display: inline-block;
+	margin: 0px 12px;
+}
+
+.article-title {
+	font-weight: 700;
 }
 
 .search {
@@ -373,6 +495,128 @@ body, html {
 
 .clear-fix {
 	clear: both;
+}
+
+/*PROFILE*/
+
+#profile-container {
+	position: relative;
+	top: 40px;
+	height: 500px;
+	width: calc(100%-24);
+	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	border-radius: 4px;
+	margin: 0 auto 40px auto;
+	padding: 12px;
+}
+
+.sub-container {
+	margin: 24px;
+}
+
+
+
+#prof-pic {
+	height: 140px;
+	width: 140px;
+	padding: 4px;
+	display: inline-block;
+	border-radius: 12px;
+	background-image: url(../img/dude.jpeg);
+	background-origin: border-box;
+	background-size: 400%;
+	background-position: center;
+}
+
+/*#prof-pic > img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}*/
+
+#details {
+	position: relative;
+	top: -28px;
+	display: inline-block;
+	margin-left: 12px;
+}
+
+#unit, #building {
+	font-size: 14px;
+}
+
+.goals-points {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 24px;
+}
+
+.goals-points:nth-child(2) {
+	position: relative;
+	left: 552px;
+}
+
+.sub-container > ul {
+	margin: 0;
+	padding-left: 24px;
+	font-weight: 400;
+	font-size: 18px;
+	display: inline-block;
+	margin-right: 12px;
+}
+
+#points {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 24px;
+	padding-left: 12px;
+	border-left: 1px solid rgba(0,0,0,0.4);
+}
+
+#points > p {
+	margin: 0;
+}
+
+#points>p:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+/*******/
+/*ABOUT*/
+/*******/
+
+.about-title {
+	font-weight: 700;
+	font-size: 24px;
+	margin-top: 40px;
+}
+
+.about-detail {
+	font-size: 18px;
+	line-height: 150%;
+}
+
+#contact {
+	margin-top: 48px;
+	font-weight: 700;
+	width: 100px;
+	padding: 4px;
+	color: white;
+	background-color: #2ecc71;
+	cursor: pointer;
+	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	border-radius: 4px;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	text-align: center;
+}
+
+#contact:hover {
+	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.5);
+	border-radius: 4px;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
 }
 
 
