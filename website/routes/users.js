@@ -5,6 +5,26 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
+// About
+router.get('/about', function(req, res){
+	res.render('about');
+});
+
+// Profile
+router.get('/profile', function(req, res){
+	res.render('profile');
+});
+
+// About
+router.get('/resources', function(req, res){
+	res.render('resources');
+});
+
+// About
+router.get('/trends', function(req, res){
+	res.render('trends');
+});
+
 // Register
 router.get('/register', function(req, res){
 	res.render('register');
