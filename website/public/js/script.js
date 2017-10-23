@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log('this was read')
 
 	// d3.select("p").text("tomato tomato");
 
