@@ -23,7 +23,7 @@
     "express-session": "*",
     "express-validator": "*",
     "mongodb": "*",
-    "mongoose": "*",
+    "mongoose": "^4.10.8",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
@@ -32,7 +32,6 @@
     "type": "git",
     "url": "https://github.com/jschnapper/project-sustainical-.git"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "keywords": []
 }
