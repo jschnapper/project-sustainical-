@@ -20,9 +20,20 @@ router.get('/resources', function(req, res){
 	res.render('resources');
 });
 
+// Resources for logged-in users
+router.get('/resourceslogin', function(req, res){
+	res.render('resourceslogin');
+});
+
 // Quizzes
 router.get('/quizzes', function(req, res){
 	res.render('quizzes');
+});
+
+
+// Quiz 1
+router.get('/quiz1', function(req, res){
+	res.render('quiz1');
 });
 
 // Trends
