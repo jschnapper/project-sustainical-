@@ -412,6 +412,14 @@ th {
 	transform: translateY(-50%);
 }
 
+.generic-image {
+	background-image: url(../img/logo.png);
+}
+
+.magn-image {
+	background-image: url(../img/magnify.jpeg);
+}
+
 .first-image {
 	background-image: url(../img/plane.jpeg);
 }
@@ -426,6 +434,10 @@ th {
 
 .fourth-image {
 	background-image: url(../img/group.jpg);
+}
+
+.fifth-image {
+	background-image: url(https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2017/themosteffec.jpg);
 }
 
 .article-details {
