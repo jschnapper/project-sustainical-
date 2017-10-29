@@ -32,6 +32,8 @@
     "type": "git",
     "url": "https://github.com/jschnapper/project-sustainical-.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  },
   "keywords": []
 }
