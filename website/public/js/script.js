@@ -54,35 +54,87 @@
 // });
 
 
-var dataPoints = [];
- 
-function getDataPointsFromCSV(csv) {
-    var dataPoints = csvLines = points = [];
-    csvLines = csv.split(/[\r?\n|\r|\n]+/);
+// Removed below on 10/29
+$(document).ready(function () {
+
+// function getDataPointsFromCSV(csv) {
+//     var dataPoints = csvLines = points = [];
+//     csvLines = csv.split(/[\r?\n|\r|\n]+/);
         
-    for (var i = 0; i < csvLines.length; i++)
-        if (csvLines[i].length > 0) {
-            points = csvLines[i].split(",");
-            dataPoints.push({ 
-                x: parseFloat(points[0]), 
-                y: parseFloat(points[1])    
-      });
-  }
-    return dataPoints;
-}
+//     for (var i = 0; i < csvLines.length; i++)
+//         if (csvLines[i].length > 0) {
+//             points = csvLines[i].split(",");
+//             dataPoints.push({ 
+//                 x: parseFloat(points[0]), 
+//                 y: parseFloat(points[1])    
+//       });
+//   }
+//     return dataPoints;
+// }
    
-$.get("dataPoints.csv", function(data) {
-    var chart = new CanvasJS.Chart("chartContainer", {
-        title: {
-      text: "Chart from CSV",
-        },
-        data: [{
-      type: "line",
-      dataPoints: getDataPointsFromCSV(data)
-  }]
-    });
+// $.get("dataPoints.csv", function(data) {
+//     var chart = new CanvasJS.Chart("chartContainer", {
+//         title: {
+//       text: "Chart from CSV",
+//         },
+//         data: [{
+//       type: "line",
+//       dataPoints: getDataPointsFromCSV(dataPoints.csv)
+//   }]
+//     });
     
-    chart.render();
+//     chart.render();
  
+// });
+
+$(document).ready(function () {
+
+    $.ajax({
+        type: "GET",
+        url: "/dataPoints.csv",
+        dataType: "text",
+        success: function (data) { processData(data); }
+    });
+
+    function processData(allText) {
+        var allLinesArray = allText.split('\n');
+        if (allLinesArray.length > 0) {
+            var dataPoints = [];
+            for (var i = 0; i <= allLinesArray.length - 1; i++) {
+          var rowData = allLinesArray[i].split(',');
+          if(rowData && rowData.length > 1)
+              dataPoints.push({ label: rowData[0], y: parseInt(rowData[1]) });
+            }
+            chart.options.data[0].dataPoints = dataPoints;
+            chart.render();
+        }
+    }
+
+            
+    var chart = new CanvasJS.Chart("chart-contained", {
+        theme: "theme2",
+        title: {
+            text: "Basic Column Chart – CanvasJS"
+        },
+        data: [
+        {
+            type: "column",
+            dataPoints: []
+        }
+        ]
+    });
+            
 });
+
+
+
+});
+
+
+
+
+
+
+
+
  

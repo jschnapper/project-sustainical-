@@ -231,7 +231,7 @@ body, html {
 	text-align: center;
 	padding: 24px;
 	margin-bottom: 100px;
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 }
 
@@ -335,13 +335,13 @@ th {
 	border: 1px solid transparent;
 	height: 250px;
 	padding: 12px;
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	cursor: pointer;
 }
 
 .special:hover{
-	box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 	border: 1px solid #2ecc71;
 	transition: 0.2s;
 	-webkit-transition: 0.2s;
@@ -388,7 +388,7 @@ th {
 	position: relative;
 	height: 150px;
 	width: calc(100% - 26px);
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	margin: 0 auto 40px auto;
 	padding: 12px;
@@ -482,7 +482,7 @@ th {
 
 
 #search-box > input {
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	padding: 12px;
 	padding-left: 32px;
@@ -499,7 +499,7 @@ th {
 }
 
 .article:hover{
-	box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 	border: 1px solid #2ecc71;
 	transition: 0.2s;
 	-webkit-transition: 0.2s;
@@ -516,7 +516,7 @@ th {
 	top: 40px;
 	height: 500px;
 	width: calc(100%-24);
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	margin: 0 auto 40px auto;
 	padding: 12px;
@@ -617,7 +617,7 @@ th {
 	color: white;
 	background-color: #2ecc71;
 	cursor: pointer;
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
@@ -625,7 +625,7 @@ th {
 }
 
 #contact:hover {
-	box-shadow: 1px 1px 20px 2px rgba(0,0,0,0.5);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
@@ -660,6 +660,7 @@ cursor: pointer;
 border: 1px solid gray; 
 } 
 
+
 #categorylist { 
 margin-top: 6px; 
 display: none; 
@@ -673,6 +674,26 @@ display: none;
 display: none;
 font-style: italic;
 }
+
+/********/
+/*OVERALL PAGE STYLES*/
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+
 
 
 
