@@ -15,12 +15,17 @@ router.get('/profile', function(req, res){
 	res.render('profile');
 });
 
-// About
+// Resources
 router.get('/resources', function(req, res){
 	res.render('resources');
 });
 
-// About
+// Quizzes
+router.get('/quizzes', function(req, res){
+	res.render('quizzes');
+});
+
+// Trends
 router.get('/trends', function(req, res){
 	res.render('trends');
 });
