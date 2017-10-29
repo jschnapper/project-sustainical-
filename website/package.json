@@ -24,5 +24,7 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
