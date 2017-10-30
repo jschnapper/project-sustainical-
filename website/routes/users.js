@@ -41,6 +41,11 @@ router.get('/trends', function(req, res){
 	res.render('trends');
 });
 
+// What can I do?
+router.get('/whatcanido', function(req, res){
+	res.render('whatcanido');
+});
+
 // Register
 router.get('/register', function(req, res){
 	res.render('register');
