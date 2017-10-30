@@ -26,6 +26,8 @@ body, html {
 	width: 100%;
 	box-shadow: 10px 1px 50px rgba(0,0,0,0.1);
 	z-index: 10;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 #nav-content {
@@ -53,24 +55,25 @@ body, html {
 }
 
 .nav-items {
-	color: black;
-	font-weight: 300;
+	color: black !important;
+	font-weight: 300 !important;
 	display: inline-block;
 	cursor: pointer;
 	padding: 2px 4px;
-	box-shadow: inset 0 0 0 0 #2ecc71;
+	box-shadow: inset 0 0 0 0 #2ecc71 !important;
 	transition: all ease 0.4s;
 
 }
 
 .nav-items > a {
-	text-decoration: none;
+	text-decoration: none !important;
 	font-weight: 300;
 	display: inline-block;
 	cursor: pointer;
 	padding: 2px 4px;
-	box-shadow: inset 0 0 0 0 #2ecc71;
+	box-shadow: inset 0 0 0 0 #2ecc71 !important;
 	transition: all ease 0.4s;
+	color: black !important;
 }
 
 .nav-items > a:hover {
@@ -83,13 +86,13 @@ body, html {
 
 
 .nav-items > a:visited {
-	text-decoration: none;
+	text-decoration: none !important;
 	font-weight: 300;
 	display: inline-block;
 	cursor: pointer;
 	color: black;
 	padding: 2px 4px;
-	box-shadow: inset 0 0 0 0 #2ecc71;
+	box-shadow: inset 0 0 0 0 #2ecc71 !important;
 	transition: all ease 0.4s;
 }
 
