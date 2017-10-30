@@ -55,7 +55,7 @@
 
 
 // Removed below on 10/29
-$(document).ready(function () {
+// $(document).ready(function () {
 
 // function getDataPointsFromCSV(csv) {
 //     var dataPoints = csvLines = points = [];
@@ -89,44 +89,25 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-    $.ajax({
-        type: "GET",
-        url: "/dataPoints.csv",
-        dataType: "text",
-        success: function (data) { processData(data); }
-    });
+var ctx = document.getElementById('fixedChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
 
-    function processData(allText) {
-        var allLinesArray = allText.split('\n');
-        if (allLinesArray.length > 0) {
-            var dataPoints = [];
-            for (var i = 0; i <= allLinesArray.length - 1; i++) {
-          var rowData = allLinesArray[i].split(',');
-          if(rowData && rowData.length > 1)
-              dataPoints.push({ label: rowData[0], y: parseInt(rowData[1]) });
-            }
-            chart.options.data[0].dataPoints = dataPoints;
-            chart.render();
-        }
-    }
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "Energy Consumption Monthly Average (kWh)",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [340, 320, 350, 360, 320, 310, 300],
+        }]
+    },
 
-            
-    var chart = new CanvasJS.Chart("chart-contained", {
-        theme: "theme2",
-        title: {
-            text: "Basic Column Chart – CanvasJS"
-        },
-        data: [
-        {
-            type: "column",
-            dataPoints: []
-        }
-        ]
-    });
-            
+    // Configuration options go here
+    options: {}
 });
-
-
 
 });
 

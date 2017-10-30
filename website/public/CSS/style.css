@@ -76,7 +76,7 @@ body, html {
 .nav-items > a:hover {
 	text-decoration: none;
 	color: white !important;
-	box-shadow: inset 100px 0 0 0 #2ecc71;
+	box-shadow: inset 100px 0 0 0 #2ecc71 !important;
 	border-radius: 4px;
 	transition: all ease 0.8s;
 }
@@ -691,6 +691,14 @@ a:active {
 a:visited {
 	text-decoration: none;
 	color: black;
+}
+
+/*TRYING TO FIX EVERYTHING*/
+
+#my-chart-contained {
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
 }
 
 

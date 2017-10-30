@@ -22,7 +22,7 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
-    "mongodb": "*",
+    "mongodb": "^2.2.33",
     "mongoose": "^4.10.8",
     "passport": "*",
     "passport-http": "*",
