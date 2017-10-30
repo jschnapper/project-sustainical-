@@ -11,8 +11,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/sustainicle');
+mongoose.connect('mongodb://admin:sustainical2017!@ds031681.mlab.com:31681/sustainical_db');
 var db = mongoose.connection;
+
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
