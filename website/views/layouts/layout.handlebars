@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SustainiCal</title>
-  <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-	<link rel="stylesheet" href="public/css/style.css">
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="public/CSS/style.css">
+	<link rel="stylesheet" href="/CSS/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
 	<link href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css rel="stylesheet">
-	<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js> </script>
-  <script src="/js/script.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.js"></script>
 </head>
 <body>
 	<div class="container">
       <div class="header clearfix">
         <nav>
-          <ul class="nav nav-pills pull-right">
+          <ul class="nav nav-pills pull-right" id="navbar">
             {{#if user}}
               <li class="nav-items" role="presentation"><a href="/">Dashboard</a></li>
               <li class="nav-items" role="presentation"><a href="/users/trends">Trends</a></li>
               <li class="nav-items" role="presentation"><a href="/users/about">About</a></li>
               <li class="nav-items" role="presentation"><a href="/users/resourceslogin">Resources</a></li>
-              <li class="nav-items" role="presentation"><a href="/users/profile">Profile</a></li>
+<!--               <li class="nav-items" role="presentation"><a href="/users/profile">Profile</a></li> -->
               <li class="nav-items" role="presentation"><a href="/users/logout">Logout</a></li>
             {{else}}
               <li class="nav-items" role="presentation"><a href="/users/trends">Trends</a></li>
@@ -32,13 +25,10 @@
               <li class="nav-items" role="presentation"><a href="/users/login">Login</a></li>
               <li class="nav-items" role="presentation"><a href="/users/register">Register</a></li>
             {{/if}}
-
           </ul>
+          <h3 class="text-muted" id="logo">SustainiCal</h3>
         </nav>
-        <h3 class="text-muted">SustainiCal</h3>
       </div>
-
-
       <div class="row">
         <div class="col-lg-12">
           {{#if success_msg}}
@@ -64,5 +54,11 @@
       </footer>
 
     </div>
+    <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
+	<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js> </script>
+  	<script src="/js/script.js"></script>
+  	<script src="https://d3js.org/d3.v4.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.js"></script>
 </body>
 </html>

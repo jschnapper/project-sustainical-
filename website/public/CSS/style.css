@@ -21,13 +21,13 @@ body, html {
 
 #navbar {
 	padding: 8px 0px;
-	position: relative;
+/*	position: relative;
 	margin: 0 auto;
 	width: 100%;
 	box-shadow: 10px 1px 50px rgba(0,0,0,0.1);
 	z-index: 10;
 	font-size: 18px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;*/
 }
 
 #nav-content {
@@ -66,8 +66,10 @@ body, html {
 }
 
 .nav-items > a {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
 	text-decoration: none !important;
-	font-weight: 300;
+	font-weight: 300 !important;
 	display: inline-block;
 	cursor: pointer;
 	padding: 2px 4px;
@@ -612,7 +614,7 @@ th {
 	line-height: 150%;
 }
 
-#contact {
+.contact {
 	margin-top: 48px;
 	font-weight: 700;
 	width: 100px;
@@ -627,7 +629,8 @@ th {
 	text-align: center;
 }
 
-#contact:hover {
+.contact:hover {
+	color: white;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	-webkit-transition: 0.2s;
@@ -698,15 +701,50 @@ a:visited {
 
 /*TRYING TO FIX EVERYTHING*/
 
-#my-chart-contained {
-	width: 400px;
-	height: 400px;
-	margin: 0 auto;
+/* QUIZZES */
+#quiz-title {
+	font-weight: 700;
+	font-size: 24px;
 }
 
+.quiz-contact {
+	margin-top: 48px;
+}
+
+.quiz-line {
+	margin-top: 12px;
+}
+
+.quiz-container {
+	margin-top: 80px;
+}
+
+.footer {
+	margin: 24px 0px 12px 0px;
+
+}
+
+/************/
+/*DASHBOARD*/
+/************/
 
 
+#my-chart-contained {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	width: 600px;
+	height: 600px;
+	padding: 8px;
+	position: inline-block;
+	margin: 8px;
+}
 
+#profile-info {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	width: 300px;
+	height: 600px;
+	padding: 8px;
+	margin: 8px;
+}
 
 
 

@@ -89,24 +89,85 @@
 
 $(document).ready(function () {
 
-var ctx = document.getElementById('fixedChart').getContext('2d');
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })      
+
+    $('#myTab a[href="#profile"]').tab('show'); // Select tab by name
+    $('#myTab a:first').tab('show'); // Select first tab
+    $('#myTab a:last').tab('show'); // Select last tab
+
+
+
+var ctx = document.getElementById('fixedChart-1').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
 
     // The data for our dataset
     data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: ["March", "April", "May", "June", "July", "August", "September"],
         datasets: [{
-            label: "Energy Consumption Monthly Average (kWh)",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [340, 320, 350, 360, 320, 310, 300],
+            label: "Ida Sproul",
+            backgroundColor: '#ff6384',
+            borderColor: '#ff6384',
+            data: [5800, 5690, 5240, 3250, 3230, 5990, 5870],
+            fill: false,
+        },
+        {
+            label: "Priestley",
+            backgroundColor: '#F7CE5B',
+            borderColor: '#F7CE5B',
+            data: [5980, 5860, 5490, 4050, 3970, 5670, 5780],
+            fill: false,
+        },
+        {
+            label: "Norton",
+            backgroundColor: '#A1C349',
+            borderColor: '#A1C349',
+            data: [5750, 5320, 5300, 4010, 4100, 5860, 5780],
+            fill: false, 
+        },
+        {
+            label: "Spens-Black",
+            backgroundColor: '#F0B67F',
+            borderColor: '#F0B67F',
+            data: [5980, 5700, 5800, 3580, 3330, 6000, 6010],
+            fill: false,   
+        },
+        {   
+            label: "Beverly Cleary",
+            backgroundColor: '#9AC4F8',
+            borderColor: '#9AC4F8',
+            data: [4790, 4550, 4400, 3300, 4560, 4770, 5100],
+            fill: false,   
+
         }]
     },
-
     // Configuration options go here
-    options: {}
+    options: {
+        title: {
+            display: true,
+            text: "Unit 3 Energy Consumption Monthly Average (kWh)"
+        },
+        scales: {
+            xAxes: [{
+                    ticks: {
+                    fontFamily: 'Source Sans Pro',
+                    fontSize: 14
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    fontFamily: 'Source Sans Pro',
+                    min: 3000,
+                    fontSize: 14
+                },
+
+            }],
+        },
+    }
 });
 
 });
