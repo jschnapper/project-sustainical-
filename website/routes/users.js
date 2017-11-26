@@ -10,10 +10,6 @@ router.get('/about', function(req, res){
 	res.render('about');
 });
 
-// Profile
-router.get('/profile', function(req, res){
-	res.render('profile');
-});
 
 // Resources
 router.get('/resources', function(req, res){
