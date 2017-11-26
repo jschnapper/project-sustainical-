@@ -81,7 +81,7 @@ body, html {
 .nav-items > a:hover {
 	text-decoration: none;
 	color: white !important;
-	box-shadow: inset 100px 0 0 0 #2ecc71 !important;
+	box-shadow: inset 150px 0 0 0 #2ecc71 !important;
 	border-radius: 4px;
 	transition: all ease 0.8s;
 }
