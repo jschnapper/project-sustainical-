@@ -21,9 +21,9 @@
     "express-handlebars": "*",
     "express-messages": "*",
     "express-session": "*",
-    "express-validator": "*",
+    "express-validator": "^4.3.0",
     "mongodb": "^2.2.33",
-    "mongoose": "^4.10.8",
+    "mongoose": "^4.13.5",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*"
