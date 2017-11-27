@@ -33,6 +33,11 @@ router.get('/quiz1', function(req, res){
 	res.render('quiz1');
 });
 
+// Quiz 2
+router.get('/quiz2', function(req, res){
+	res.render('quiz2');
+});
+
 // Trends
 router.get('/trends', function(req, res){
 	res.render('trends');

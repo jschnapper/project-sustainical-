@@ -12,13 +12,13 @@
 					<!-- thank you bootstrap -->
 					<ul class="nav md-pills nav-justified pills-secondary keep-width">
 					    <li class="nav-item">
-					        <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Year</a>
+					        <a class="nav-link active theCharts" data-toggle="tab" href="#panel4" role="tab">Week</a>
 					    </li>
 					    <li class="nav-item">
-					        <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Month</a>
+					        <a class="nav-link theCharts" data-toggle="tab" href="#panel11" role="tab">Month</a>
 					    </li>
-					    <li class="nav-item ">
-					        <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Week</a>
+					    <li class="nav-item">
+					        <a class="nav-link theChartsc" data-toggle="tab" href="#panel12" role="tab">Year</a>
 					    </li>
 					</ul>
 
@@ -28,20 +28,21 @@
 					    <!--Panel 1-->
 					    <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
 					        <br>
-					        <canvas id="fixedChart-1" height="500" width="600"></canvas>
+					        <canvas id="fixedChart-1" class="charted" height="500" width="600"></canvas>
 					    </div>
 					    <!--/.Panel 1-->
 
 					    <!--Panel 2-->
 					    <div class="tab-pane fade" id="panel11" role="tabpanel">
 					        <br>
-
+					        <canvas id="fixedChart-2" class="uncharted" height="500" width="600"></canvas>
 					    </div>
 					    <!--/.Panel 2-->
 
 					    <!--Panel 3-->
 					    <div class="tab-pane fade" id="panel12" role="tabpanel">
 					        <br>
+					        <canvas id="fixedChart-3" class="uncharted" height="500" width="600"></canvas>
 					    </div>
 					    <!--/.Panel 3-->
 					</div>

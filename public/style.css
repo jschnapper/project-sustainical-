@@ -820,6 +820,15 @@ a:visited {
 }*/
 
 
+.charted {
+	display: inline-block;
+	position: absolute;
+}
+
+.uncharted {
+	display: none;
+}
+
 
 
 
