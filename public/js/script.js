@@ -88,7 +88,7 @@ $(document).ready(function () {
     function callEnergyQ() {
         console.log("calling");
         for (let m = 0; m < 5; m ++) {
-            url.push(api + key + series[m] + mS);
+            url.push(api + key + series[m] + qS);
             $.getJSON(url[m], function(datum) {
                 energy = datum.series[0].data;
                 if (energy) {
@@ -136,7 +136,7 @@ $(document).ready(function () {
     function callEnergyY() {
         console.log("calling");
         for (let m = 0; m < 5; m ++) {
-            url.push(api + key + series[m] + mS);
+            url.push(api + key + series[m] + aS);
             $.getJSON(url[m], function(datum) {
                 energy = datum.series[0].data;
                 if (energy) {
