@@ -32,8 +32,8 @@ app.use(cookieParser());
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/js',express.static(path.join(__dirname, 'public/js')));
-app.use('/css',express.static(path.join(__dirname, 'public/css')));
+app.use(express.static(path.join(__dirname, 'public/js')));
+app.use(express.static(path.join(__dirname, 'public/css')));
 
 // Express Session
 app.use(session({
