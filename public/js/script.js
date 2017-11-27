@@ -3,7 +3,7 @@ $(document).ready(function () {
     console.log("work");
 
     // Temporary API while gathering data from school 
-    let api = "http://api.eia.gov/series/?";
+    let api = "https://api.eia.gov/series/?";
     let key = "api_key=2ac7c2560b1ced48de2d1c77c09ddda1";
     let series = ["&series_id=ELEC.CONS_TOT.COW-AL-98.M", "&series_id=ELEC.CONS_TOT.COW-AK-98.M", "&series_id=ELEC.CONS_TOT.COW-AR-98.M", "&series_id=ELEC.CONS_TOT.COW-AZ-98.M", "&series_id=ELEC.CONS_TOT.COW-CA-98.M"];
     let month = [];
