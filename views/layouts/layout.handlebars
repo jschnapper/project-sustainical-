@@ -6,7 +6,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
+	<div class="navbar-container">
       <div class="header clearfix">
         <nav>
           <h3 class="text-muted" id="logo">SustainiCal</h3>
@@ -30,25 +30,26 @@
           </ul>
         </nav>
       </div>
-      <div class="row">
-        <div class="col-lg-12">
-          {{#if success_msg}}
-            <div class="alert alert-success">{{success_msg}}</div>
-          {{/if}}
+  </div>
+  <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            {{#if success_msg}}
+              <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
 
-          {{#if error_msg}}
-            <div class="alert alert-danger">{{error_msg}}</div>
-          {{/if}}
+            {{#if error_msg}}
+              <div class="alert alert-danger">{{error_msg}}</div>
+            {{/if}}
 
-          {{#if error}}
-            <div class="alert alert-danger">{{error}}</div>
-          {{/if}}
-          
-          {{{body}}}
+            {{#if error}}
+              <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+            
+            {{{body}}}
+          </div>
         </div>
-
-        
-      </div>
+    </div>
 
       <footer class="footer">
         <p>&copy; 2018 Sustainical</p>
