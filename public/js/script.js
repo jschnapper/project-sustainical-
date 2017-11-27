@@ -176,6 +176,18 @@ var chart = new Chart(ctx, {
     }
 });
 
+// Summation
+
+let sum0 = month[0].reduce(add, 0);
+let sum1 = month[1].reduce(add, 0);
+let sum2 = month[2].reduce(add, 0);
+let sum3 = month[3].reduce(add, 0);
+let sum4 = month[4].reduce(add, 0);
+
+function add(a, b) {
+    return a + b;
+}
+
 
 
 

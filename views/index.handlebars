@@ -6,55 +6,51 @@
 <body>
 	<h2 class="page-header">Dashboard</h2>
 	<p>Welcome to your dashboard!</p>
-	<div class="container">
-		<div class="row">
-		<div class="col-sm-8" id="my-chart-contained">
-			<!-- thank you bootstrap -->
-			<ul class="nav md-pills nav-justified pills-secondary">
-			    <li class="nav-item">
-			        <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Year</a>
-			    </li>
-			    <li class="nav-item">
-			        <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Month</a>
-			    </li>
-			    <li class="nav-item ">
-			        <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Week</a>
-			    </li>
-			</ul>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8" id="my-chart-contained">
+					<!-- thank you bootstrap -->
+					<ul class="nav md-pills nav-justified pills-secondary keep-width">
+					    <li class="nav-item">
+					        <a class="nav-link active" data-toggle="tab" href="#panel4" role="tab">Year</a>
+					    </li>
+					    <li class="nav-item">
+					        <a class="nav-link" data-toggle="tab" href="#panel11" role="tab">Month</a>
+					    </li>
+					    <li class="nav-item ">
+					        <a class="nav-link" data-toggle="tab" href="#panel12" role="tab">Week</a>
+					    </li>
+					</ul>
 
-			<!-- Tab panels -->
-			<div class="tab-content">
+					<!-- Tab panels -->
+					<div class="tab-content keep-width">
 
-			    <!--Panel 1-->
-			    <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-			        <br>
-			        <canvas id="fixedChart-1" height="500" width="600"></canvas>
-			    </div>
-			    <!--/.Panel 1-->
+					    <!--Panel 1-->
+					    <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
+					        <br>
+					        <canvas id="fixedChart-1" height="500" width="600"></canvas>
+					    </div>
+					    <!--/.Panel 1-->
 
-			    <!--Panel 2-->
-			    <div class="tab-pane fade" id="panel11" role="tabpanel">
-			        <br>
+					    <!--Panel 2-->
+					    <div class="tab-pane fade" id="panel11" role="tabpanel">
+					        <br>
 
-			    </div>
-			    <!--/.Panel 2-->
+					    </div>
+					    <!--/.Panel 2-->
 
-			    <!--Panel 3-->
-			    <div class="tab-pane fade" id="panel12" role="tabpanel">
-			        <br>
-			    </div>
-			    <!--/.Panel 3-->
+					    <!--Panel 3-->
+					    <div class="tab-pane fade" id="panel12" role="tabpanel">
+					        <br>
+					    </div>
+					    <!--/.Panel 3-->
+					</div>
+				</div>
+				<div id="profile-info" class="boxes col-sm-4">
+					<h3>User</h3>
+					<h4>Ida Sproul | 2nd</h4>
+				</div>
 			</div>
 		</div>
-		<div id="profile-info" class="col-sm-4">
-			<h3>Admin</h3>
-			<!-- <h3 id="username"></h3> -->
-			<h4>Ida Sproul | 2nd</h4>
-		</div>
-		<div class="col-sm-4">
-			<div id="work"></div>
-		</div>
-	</div>
-</div>
 </body>
 </html>
