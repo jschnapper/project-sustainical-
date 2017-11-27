@@ -823,12 +823,21 @@ a:visited {
 .charted {
 	display: inline-block;
 	position: absolute;
+	z-index: 40;
 }
 
 .uncharted {
 	display: none;
 }
 
+.theCharts {
+	color: #2ecc71;
+}
+
+.theCharts:hover {
+	color: #2ecc71;
+	opacity: 0.5;
+}
 
 
 

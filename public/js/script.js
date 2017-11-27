@@ -71,7 +71,6 @@ $(document).ready(function () {
         console.log("check");
         if (month.length == 5) {
             console.log("success");
-            console.log(month[0]);
             chart.update();
             clearTimeout(checking);
         }
@@ -119,7 +118,6 @@ $(document).ready(function () {
         console.log("check");
         if (month.length == 5) {
             console.log("success");
-            console.log(month[0]);
             chart.update();
             clearTimeout(checking);
         }
@@ -167,7 +165,6 @@ $(document).ready(function () {
         console.log("check");
         if (month.length == 5) {
             console.log("success");
-            console.log(month[0]);
             chart.update();
             clearTimeout(checking);
         }
@@ -344,7 +341,7 @@ var chart2 = new Chart(ctx2, {
     options: {
         title: {
             display: true,
-            text: "Unit 3 Energy Consumption Monthly Average (kWh)"
+            text: "Unit 3 Energy Consumption Average (kWh)"
         },
         scales: {
             xAxes: [{
@@ -413,7 +410,7 @@ var chart3 = new Chart(ctx3, {
     options: {
         title: {
             display: true,
-            text: "Unit 3 Energy Consumption Monthly Average (kWh)"
+            text: "Unit 3 Energy Consumption Average (kWh)"
         },
         scales: {
             xAxes: [{

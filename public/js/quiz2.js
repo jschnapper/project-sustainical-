@@ -1,9 +1,9 @@
 $(document).ready(function() 
 {    $("#results").click(function() {                
 
-if (!$("input[@name=q1]:checked").val() ||            
-!$("input[@name=q2]:checked").val() ||            
-!$("input[@name=q3]:checked").val()       
+if (!$("input[name=q1]:checked").val() ||            
+!$("input[name=q2]:checked").val() ||            
+!$("input[name=q3]:checked").val()       
 ) {            
 alert("You're not done yet!");        
 }        
@@ -15,11 +15,11 @@ var cat3name = "3";
 var cat11name = "None";            
             
 
-var cat1 = ($("input[@name=q1]:checked").val() != "d"); 
+var cat1 = ($("input[name=q1]:checked").val() != "d"); 
            
-var cat2 = ($("input[@name=q2]:checked").val() != "c");  
+var cat2 = ($("input[name=q2]:checked").val() != "c");  
 
-var cat3 = ($("input[@name=q3]:checked").val() != "a");  
+var cat3 = ($("input[name=q3]:checked").val() != "a");  
 
 var cat11 = (!cat1 && !cat2 && !cat3); var categories = [];                        
 
