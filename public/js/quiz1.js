@@ -1,11 +1,11 @@
 $(document).ready(function() 
 {    $("#results").click(function() {                
 
-if (!$("input[@name=q1]:checked").val() ||            
-!$("input[@name=q2]:checked").val() ||            
-!$("input[@name=q3]:checked").val() ||            
-!$("input[@name=q4]:checked").val() ||            
-!$("input[@name=q5]:checked").val()         
+if (!$("input[name=q1]:checked").val() ||            
+!$("input[name=q2]:checked").val() ||            
+!$("input[name=q3]:checked").val() ||            
+!$("input[name=q4]:checked").val() ||            
+!$("input[name=q5]:checked").val()         
 ) {            
 alert("You're not done yet!");        
 }        
@@ -19,15 +19,15 @@ var cat5name = "5";
 var cat11name = "None";            
             
 
-var cat1 = ($("input[@name=q1]:checked").val() != "c"); 
+var cat1 = ($("input[name=q1]:checked").val() != "c"); 
            
-var cat2 = ($("input[@name=q2]:checked").val() != "c");  
+var cat2 = ($("input[name=q2]:checked").val() != "c");  
 
-var cat3 = ($("input[@name=q3]:checked").val() != "b");  
+var cat3 = ($("input[name=q3]:checked").val() != "b");  
 
-var cat4 = ($("input[@name=q4]:checked").val() != "a");  
+var cat4 = ($("input[name=q4]:checked").val() != "a");  
 
-var cat5 = ($("input[@name=q5]:checked").val() != "d");  
+var cat5 = ($("input[name=q5]:checked").val() != "d");  
 
 var cat11 = (!cat1 && !cat2 && !cat3 && !cat4 && !cat5); var categories = [];                        
 
