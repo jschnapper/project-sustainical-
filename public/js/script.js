@@ -26,7 +26,7 @@ $(document).ready(function () {
 
     function callEnergyWeek() {
         for (let m = 0; m < 5; m ++) {
-            url.push(api + buildings[m] + endingPart + key + elecConsump + intervals[2] + quantity);
+            url.push(api + buildings[m] + endingPart + key + elecConsump + intervals[2] + quantity + '&callback=?');
             console.log(url[0]);
             $.getJSON(url[m], function(datum) {
                 energy = datum.data;
