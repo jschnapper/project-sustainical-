@@ -3,172 +3,58 @@ $(document).ready(function () {
     console.log("work");
 
     // Temporary API while gathering data from school 
-    let api = "https://api.eia.gov/series/?";
-    let key = "api_key=2ac7c2560b1ced48de2d1c77c09ddda1";
-    let series = ["&series_id=ELEC.CONS_TOT.COW-AL-98.", "&series_id=ELEC.CONS_TOT.COW-CO-98.", "&series_id=ELEC.CONS_TOT.COW-AR-98.", "&series_id=ELEC.CONS_TOT.COW-AZ-98.", "&series_id=ELEC.CONS_TOT.COW-FL-98."];
-    let mS = "M";
-    let qS = "Q";
-    let aS = "A";
-    let month = [[],[],[],[],[]];
+    let api = "https://api.us.pulseenergy.com/pulse/1/spaces/";
+    let key = "key=FB433A2160AB2CB9F47F92FAB33E412C";
+    // building order = 2,3,4,7,8,9,11,14
+    let buildings = ["1000319", "1000320", "1000321", "1000322", "1000323", "1000324", "1000325", "1000326"]
+    let endingPart = "/data.json?"
+    let elecConsump = "&resource=Electricity"
+    let quantity = "&quantity=Energy"
+    let intervals = ["&interval=hour", "&interval=day", "&interval=week", "&interval=month"]
+    let kerr = [[],[],[],[],[]];
     let url = [];
     let tracker = [];
     let energy; 
     console.log("variables loaded");
 
-    // temporary variable
-    let tempData = [];
-    let build0;
-    let build1;
-    let build2;
-    let build3;
-    let build4;
 
-
-    // What we want to work, but can't due to asynchronous nature 
-
-
-    function setupDay() {
-        month = [[],[],[],[],[]];
-        console.log("setting");
-        // setInterval(callEnergy, 10000);
-        callEnergyDay();
+    function setupWeek() {
+        kerr = [[],[],[],[],[]];
+        callEnergyWeek();
     }
 
 
-    function callEnergyDay() {
-        console.log("calling");
+    function callEnergyWeek() {
         for (let m = 0; m < 5; m ++) {
-            url.push(api + key + series[m] + mS);
+            url.push(api + buildings[m] + endingPart + key + elecConsump + intervals[2] + quantity);
+            console.log(url[0]);
             $.getJSON(url[m], function(datum) {
-                energy = datum.series[0].data;
+                energy = datum.data;
                 if (energy) {
                     tracker = [];
                     let k = 0;
-                    console.log(energy[0][1]);
-                        while (month[m].length < 7) {
+                        while (kerr[m].length < 7) {
                             if (energy[k][1] == null || energy[k][1] == 0 || energy[k][1] == undefined) {
                                 energy.splice(k, 1);
                                 console.log(tracker.length);
                             }
                             else {
                                 console.log(tracker);
-                                month[m].push(energy[k][1])
+                                kerr[m].push(energy[k][1])
                                 k ++;
                             }
                         }
                         energy = 0;
+                        setTimeout(chart.update(), 5000);
                 
                 }
             });
         }
     }
     
-    setupDay();
-
-    let checking = setInterval(check, 1000);
-
-    function check() {
-        console.log("check");
-        if (month.length == 5) {
-            console.log("success");
-            chart.update();
-            clearTimeout(checking);
-        }
-    }
-
-    function setupQ() {
-        month = [[],[],[],[],[]];
-        console.log("setting");
-        // setInterval(callEnergy, 10000);
-        callEnergyQ();
-    }
+    setupWeek();
 
 
-    function callEnergyQ() {
-        console.log("calling");
-        for (let m = 0; m < 5; m ++) {
-            url.push(api + key + series[m] + qS);
-            $.getJSON(url[m], function(datum) {
-                energy = datum.series[0].data;
-                if (energy) {
-                    tracker = [];
-                    let k = 0;
-                    console.log(energy[0][1]);
-                        while (month[m].length < 7) {
-                            if (energy[k][1] == null || energy[k][1] == 0 || energy[k][1] == undefined) {
-                                energy.splice(k, 1);
-                                console.log(tracker.length);
-                            }
-                            else {
-                                console.log(tracker);
-                                month[m].push(energy[k][1])
-                                k ++;
-                            }
-                        }
-                        energy = 0;
-                
-                }
-            });
-        }
-    }
-
-    let checking2 = setInterval(check2, 1000);
-
-    function check2() {
-        console.log("check");
-        if (month.length == 5) {
-            console.log("success");
-            chart.update();
-            clearTimeout(checking);
-        }
-    }
-
-    function setupY() {
-        month = [[],[],[],[],[]];
-        console.log("setting");
-        // setInterval(callEnergy, 10000);
-        callEnergyY();
-    }
-
-
-    function callEnergyY() {
-        console.log("calling");
-        for (let m = 0; m < 5; m ++) {
-            url.push(api + key + series[m] + aS);
-            $.getJSON(url[m], function(datum) {
-                energy = datum.series[0].data;
-                if (energy) {
-                    tracker = [];
-                    let k = 0;
-                    console.log(energy[0][1]);
-                        while (month[m].length < 7) {
-                            if (energy[k][1] == null || energy[k][1] == 0 || energy[k][1] == undefined) {
-                                energy.splice(k, 1);
-                                console.log(tracker.length);
-                            }
-                            else {
-                                console.log(tracker);
-                                month[m].push(energy[k][1])
-                                k ++;
-                            }
-                        }
-                        energy = 0;
-                
-                }
-            });
-        }
-    }
-
-    let checking3 = setInterval(check3, 1000);
-
-    function check3() {
-        console.log("check");
-        if (month.length == 5) {
-            console.log("success");
-            chart.update();
-            clearTimeout(checking);
-        }
-    }
 
     $("theCharts").click(function () {
         if (this.html() == "Week") {
@@ -230,40 +116,40 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        labels: ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
         datasets: [{
-            label: "Ida Sproul",
+            label: "Building 2",
             backgroundColor: '#ff6384',
             borderColor: '#ff6384',
-            data: month[0],
+            data: kerr[0],
             fill: false
         },
         {
-            label: "Priestley",
+            label: "Building 3",
             backgroundColor: '#F7CE5B',
             borderColor: '#F7CE5B',
-            data: month[1],
+            data: kerr[1],
             fill: false
         },
         {
-            label: "Norton",
+            label: "Building 4",
             backgroundColor: '#A1C349',
             borderColor: '#A1C349',
-            data: month[2],
+            data: kerr[2],
             fill: false
         },
         {
-            label: "Spens-Black",
+            label: "Building 7",
             backgroundColor: '#F0B67F',
             borderColor: '#F0B67F',
-            data: month[3],
+            data: kerr[3],
             fill: false
         },
         {   
-            label: "Beverly Cleary",
+            label: "Building 8",
             backgroundColor: '#9AC4F8',
             borderColor: '#9AC4F8',
-            data: month[4],
+            data: kerr[4],
             fill:false
         }
 
@@ -272,7 +158,7 @@ var chart = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: "Unit 3 Energy Consumption Average (kWh)"
+            text: "Clark Kerr Energy Consumption (kWh)"
         },
         scales: {
             xAxes: [{
@@ -292,155 +178,18 @@ var chart = new Chart(ctx, {
     }
 });
 
-var ctx2 = document.getElementById('fixedChart-2').getContext('2d');
-var chart2 = new Chart(ctx2, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["May", "June", "July", "August", "September", "October", "November"],
-        datasets: [{
-            label: "Ida Sproul",
-            backgroundColor: '#ff6384',
-            borderColor: '#ff6384',
-            data: month[0],
-            fill: false
-        },
-        {
-            label: "Priestley",
-            backgroundColor: '#F7CE5B',
-            borderColor: '#F7CE5B',
-            data: month[1],
-            fill: false
-        },
-        {
-            label: "Norton",
-            backgroundColor: '#A1C349',
-            borderColor: '#A1C349',
-            data: month[2],
-            fill: false
-        },
-        {
-            label: "Spens-Black",
-            backgroundColor: '#F0B67F',
-            borderColor: '#F0B67F',
-            data: month[3],
-            fill: false
-        },
-        {   
-            label: "Beverly Cleary",
-            backgroundColor: '#9AC4F8',
-            borderColor: '#9AC4F8',
-            data: month[4],
-            fill:false
-        }
-
-        ]
-    },
-    options: {
-        title: {
-            display: true,
-            text: "Unit 3 Energy Consumption Average (kWh)"
-        },
-        scales: {
-            xAxes: [{
-                    ticks: {
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 14
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 14
-                },
-
-            }],
-        },
-    }
-});
-
-var ctx3 = document.getElementById('fixedChart-3').getContext('2d');
-var chart3 = new Chart(ctx3, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["2011", "2012", "2013", "2014", "2015", "2016", "2017"],
-        datasets: [{
-            label: "Ida Sproul",
-            backgroundColor: '#ff6384',
-            borderColor: '#ff6384',
-            data: month[0],
-            fill: false
-        },
-        {
-            label: "Priestley",
-            backgroundColor: '#F7CE5B',
-            borderColor: '#F7CE5B',
-            data: month[1],
-            fill: false
-        },
-        {
-            label: "Norton",
-            backgroundColor: '#A1C349',
-            borderColor: '#A1C349',
-            data: month[2],
-            fill: false
-        },
-        {
-            label: "Spens-Black",
-            backgroundColor: '#F0B67F',
-            borderColor: '#F0B67F',
-            data: month[3],
-            fill: false
-        },
-        {   
-            label: "Beverly Cleary",
-            backgroundColor: '#9AC4F8',
-            borderColor: '#9AC4F8',
-            data: month[4],
-            fill:false
-        }
-
-        ]
-    },
-    options: {
-        title: {
-            display: true,
-            text: "Unit 3 Energy Consumption Average (kWh)"
-        },
-        scales: {
-            xAxes: [{
-                    ticks: {
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 14
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 14
-                },
-
-            }],
-        },
-    }
-});
 
 // Summation
 
-let sum0 = month[0].reduce(add, 0);
-let sum1 = month[1].reduce(add, 0);
-let sum2 = month[2].reduce(add, 0);
-let sum3 = month[3].reduce(add, 0);
-let sum4 = month[4].reduce(add, 0);
+// let sum0 = month[0].reduce(add, 0);
+// let sum1 = month[1].reduce(add, 0);
+// let sum2 = month[2].reduce(add, 0);
+// let sum3 = month[3].reduce(add, 0);
+// let sum4 = month[4].reduce(add, 0);
 
-function add(a, b) {
-    return a + b;
-}
+// function add(a, b) {
+//     return a + b;
+// }
 
 
 $(".special.right").click(function() {

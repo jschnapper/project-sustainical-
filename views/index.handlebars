@@ -4,54 +4,72 @@
 		<title>Sustainical | Dashboard</title>
 	</head>
 <body>
-	<h2 class="page-header">Dashboard</h2>
-	<p>Welcome to your dashboard!</p>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8" id="my-chart-contained">
-					<!-- thank you bootstrap -->
-					<ul class="nav md-pills nav-justified pills-secondary keep-width">
-					    <li class="nav-item">
-					        <a class="nav-link active theCharts" data-toggle="tab" href="#panel4" role="tab">Week</a>
-					    </li>
-					    <li class="nav-item">
-					        <a class="nav-link theCharts" data-toggle="tab" href="#panel11" role="tab">Month</a>
-					    </li>
-					    <li class="nav-item">
-					        <a class="nav-link theCharts" data-toggle="tab" href="#panel12" role="tab">Year</a>
-					    </li>
-					</ul>
-
-					<!-- Tab panels -->
-					<div class="tab-content keep-width">
-
-					    <!--Panel 1-->
-					    <div class="tab-pane fade in show active" id="panel4" role="tabpanel">
-					        <br>
-					        <canvas id="fixedChart-1" class="charted" height="500" width="600"></canvas>
-					    </div>
-					    <!--/.Panel 1-->
-
-					    <!--Panel 2-->
-					    <div class="tab-pane fade" id="panel11" role="tabpanel">
-					        <br>
-					        <canvas id="fixedChart-2" class="uncharted" height="500" width="600"></canvas>
-					    </div>
-					    <!--/.Panel 2-->
-
-					    <!--Panel 3-->
-					    <div class="tab-pane fade" id="panel12" role="tabpanel">
-					        <br>
-					        <canvas id="fixedChart-3" class="uncharted" height="500" width="600"></canvas>
-					    </div>
-					    <!--/.Panel 3-->
+	<div class="container dashboard">
+		<div class="row user-specific">
+			<div class="col-md-12">
+				<div class="boxes">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="user-info">
+								<div id="user-name">Jarrod</div>
+								<div id="user-building>">Building 8</div>
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="profile-info">
+								<div id="goals">
+									My Goals
+								</div>
+								<div id="listed-goals">
+									<ul>
+										<li>goal 1</li>
+										<li>goal 2</li>
+										<li>goal 3</li>
+									</ul>
+									<div class="button" id="add-goal">
+										Add Goal
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div id="profile-info" class="boxes col-sm-4">
-					<h3>User | 0 pts</h3>
-					<h4>Ida Sproul | 450 pts</h4>
 				</div>
 			</div>
 		</div>
+		<div class="row user-specific">
+			<div class="col-xs-6">
+				<div class="boxes">
+					<div class="user-title">
+						User Points
+					</div>
+					<div class="score">
+						24
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="boxes">
+					<div class="user-title">
+						Building Points
+					</div>
+					<div class="score">
+						400
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row user-specific">
+			<div class="col-md-8">
+				<div class="boxes chart">
+					<canvas id="fixedChart-1"></canvas>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="boxes">
+					leaderboard
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
