@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // Temporary API while gathering data from school 
     let api = "https://api.us.pulseenergy.com/pulse/1/spaces/";
-    let key = "key=FB433A2160AB2CB9F47F92FAB33E412C";
+    // let key = "key=FB433A2160AB2CB9F47F92FAB33E412C";
     // building order = 2,3,4,7,8,9,11,14
     let buildings = ["1000319", "1000320", "1000321", "1000322", "1000323", "1000324", "1000325", "1000326"]
     let endingPart = "/data.json?"
