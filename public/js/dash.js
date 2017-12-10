@@ -5,20 +5,31 @@ $(document).ready(function() {
     let api = "https://api.us.pulseenergy.com/pulse/1/spaces/";
     let key = "key=FB433A2160AB2CB9F47F92FAB33E412C";
     // building order = 2,3,4,7,8,9,11,14
-    let buildings = ["1000319", "1000320", "1000321", "1000322", "1000323", "1000324", "1000325", "1000326"]
-    let endingPart = "/data.json?"
-    let elecConsump = "&resource=Electricity"
-    let quantity = "&quantity=Energy"
-    let intervals = ["&interval=hour", "&interval=day", "&interval=week", "&interval=month"]
+    let buildings = ["1000319", "1000320", "1000321", "1000322", "1000323", "1000324", "1000325", "1000326"];
+    let endingPart = "/data.json?";
+    let elecConsump = "&resource=Electricity";
+    let quantity = "&quantity=Energy";
+    let intervals = ["&interval=hour", "&interval=day", "&interval=week", "&interval=month"];
     let kerr = [[],[],[],[],[]];
     let url = [];
     let tracker = [];
+    let currLabels = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    let now = new Date();
+    let dayIndex;
+    let hourIndex;
+    let timeString;
     let energy; 
     console.log("variables loaded");
     let checkAPI = false;
 
+    let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+
     function setupWeek() {
+        now = new Date();
         kerr = [[],[],[],[],[]];
+        currLabels = [];
+        url = [];
+        energy;
         callEnergyWeek();
     }
 
@@ -27,6 +38,19 @@ $(document).ready(function() {
         for (let m = 0; m < 5; m ++) {
             url.push(api + buildings[m] + endingPart + key + elecConsump + intervals[2] + quantity + '&callback=?');
             console.log(url[0]);
+            dayIndex = now.getDay() - 1;
+            while (currLabels.length < 7) {
+                if (dayIndex == -1) {
+                    dayIndex = 6;
+                    currLabels.push(days[dayIndex]);
+                    dayIndex -= 1;
+                }
+                else {
+                    currLabels.push(days[dayIndex]);
+                    dayIndex -= 1;
+                }
+            }
+            currLabels = currLabels.reverse();
             $.getJSON(url[m], function(datum) {
                 checkAPI = true;
                 energy = datum.data;
@@ -50,8 +74,88 @@ $(document).ready(function() {
         }
     }
 
+    // DAYS
+
+    function setupDay() {
+        console.log("OH YEAH DAY");
+        now = new Date();
+        timeString;
+        kerr = [[],[],[],[],[]];
+        currLabels = [];
+        url = [];
+        energy;
+        callEnergyDay();
+    }
+
+
+    function callEnergyDay() {
+        console.log("enery day called");
+        for (let m = 0; m < 5; m ++) {
+            url.push(api + buildings[m] + endingPart + key + elecConsump + intervals[1] + quantity + '&callback=?');
+            console.log(url[0]);
+            hourIndex = now.getHours() - 1;
+            while (currLabels.length < 23) {
+                if (hourIndex == -1) {
+                    hourIndex = 23;
+                    timeString = hourIndex.toString() + ":00";
+                    currLabels.push(timeString);
+                    hourIndex -= 1; 
+                }
+                else {
+                    timeString = hourIndex.toString() + ":00";
+                    currLabels.push(timeString);
+                    hourIndex -= 1;
+                }
+            }
+            currLabels = currLabels.reverse();
+            $.getJSON(url[m], function(datum) {
+                checkAPI = true;
+                energy = datum.data;
+                if (energy) {
+                    tracker = [];
+                    let k = 0;
+                        while (kerr[m].length < 23) {
+                            if (energy[k][1] == null || energy[k][1] == 0 || energy[k][1] == undefined) {
+                                energy.splice(k, 1);
+                            }
+                            else {
+                                kerr[m].push(energy[k][1])
+                                k ++;
+                            }
+                        }
+                        energy = 0;
+                        setTimeout(chart.update(), 5000);
+                
+                }
+            });
+        }
+    }
+
     setupWeek();
-    
+
+    $(".chart-options").click(function() {
+        $(".chart-options").removeClass("active-tab");
+        $(this).addClass("active-tab");
+        if ($(this).html() == "week") {
+            console.log("weeeeeek");
+            setupWeek();
+        }
+        else if ($(this).html() == "day") {
+            console.log("daaaaay");
+            setupDay();
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
     // IN CASE THE API HAS BEEN CALLED TOO MANY TIMES
     setTimeout(function() {
         if (!checkAPI) {
@@ -59,6 +163,7 @@ $(document).ready(function() {
         setupError();
         }
     }, 7500);
+
 
         // Error handling API
     let apiError = "https://api.eia.gov/series/?";
@@ -104,7 +209,7 @@ $(document).ready(function() {
         }
     }
 
-
+Chart.defaults.global.defaultFontFamily = "Source Sans Pro";
 var ctx = document.getElementById('fixedChart-1').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -112,7 +217,7 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        labels: currLabels,
         datasets: [{
             label: "Building 2",
             backgroundColor: '#ff6384',
@@ -152,10 +257,10 @@ var chart = new Chart(ctx, {
         ]
     },
     options: {
-        title: {
-            display: true,
-            text: "Clark Kerr Energy Consumption (kWh)"
-        },
+        // title: {
+        //     display: true,
+        //     text: "Clark Kerr Energy Consumption (kWh)"
+        // },
         scales: {
             xAxes: [{
                     ticks: {
@@ -171,6 +276,9 @@ var chart = new Chart(ctx, {
 
             }],
         },
+        legend: {
+            position: 'bottom',
+        }
     }
 });
 

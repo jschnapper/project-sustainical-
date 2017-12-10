@@ -1,79 +1,88 @@
-<!DOCTYPE html>
-<html>
-	<head> 
-		<title>Sustainical | Dashboard</title>
-	</head>
-<body>
-	<div class="container sustainical-page">
-		<div class="row user-specific">
-			<div class="col-md-12">
-				<div class="boxes">
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="user-info">
-								<div id="user-name">Jarrod</div>
-								<div id="user-building>">Building 8</div>
-							</div>
+<head> 
+	<title>Sustainical | Dashboard</title>
+</head>
+<div class="container sustainical-page">
+	<div class="row user-specific">
+		<div class="col-md-12">
+			<div class="boxes">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="user-info">
+							<div id="user-name">Jarrod</div>
+							<div id="user-building>">Building 8</div>
 						</div>
-						<div class="col-sm-9">
-							<div class="profile-info">
-								<div id="goals">
-									My Goals
-								</div>
-								<div id="listed-goals">
-									<ul>
-										<li>goal 1</li>
-										<li>goal 2</li>
-										<li>goal 3</li>
-									</ul>
-									<div class="button" id="add-goal">
-										Add Goal
-									</div>
+					</div>
+					<div class="col-sm-9">
+						<div class="profile-info">
+							<div id="goals">
+								My Goals
+							</div>
+							<div id="listed-goals">
+								<ul>
+									<li>goal 1</li>
+									<li>goal 2</li>
+									<li>goal 3</li>
+								</ul>
+								<div class="button" id="add-goal">
+									Add Goal
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row user-specific">
-			<div class="col-xs-6">
-				<div class="boxes">
-					<div class="user-title">
-						User Points
-					</div>
-					<div class="score">
-						24
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="boxes">
-					<div class="user-title">
-						Building Points
-					</div>
-					<div class="score">
-						400
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row user-specific">
-			<div class="col-md-8">
-				<div class="boxes chart">
-					<canvas id="fixedChart-1"></canvas>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="boxes">
-					leaderboard
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
-	<script src="/js/dash.js"></script>
-</body>
-</html>
+	<div class="row user-specific">
+		<div class="col-xs-6">
+			<div class="boxes">
+				<div class="user-title">
+					User Points
+				</div>
+				<div class="score">
+					24
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="boxes">
+				<div class="user-title">
+					Building Points
+				</div>
+				<div class="score">
+					400
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row user-specific">
+		<div class="col-md-8">
+			<div class="boxes overall-charts">
+				<div class="chart-info">
+					<div class="chart-text chart-header">
+						Energy Consumption by Building (kWh)
+					</div>
+					<div class="chart-text">
+						<ul class="chart-option-container">
+							<li class="chart-options">month</li>
+							<li class="active-tab chart-options">week</li>
+							<li class="chart-options">day</li>
+						</ul>
+					</div>
+				</div>
+				<div class="chart-container">
+					<canvas id="fixedChart-1"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="boxes">
+				leaderboard
+			</div>
+		</div>
+	</div>
+</div>
+<script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+<script src="/js/dash.js"></script>
