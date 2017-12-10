@@ -15,7 +15,14 @@ body, html {
 	max-width: 1600px;
 	width: 100%;
 }
+/********************/
+/*WEBSITE FORMATTING*/
+/********************/
 
+.sustainical-page {
+	position: relative;
+	top: 100px;
+}
 
 /*NAV BAR*/
 
@@ -789,11 +796,6 @@ a:visited {
 /************/
 /*DASHBOARD*/
 /************/
-
-.dashboard {
-	position: relative;
-	top: 100px;
-}
 
 .user-specific {
 	margin: 16px 0px;
