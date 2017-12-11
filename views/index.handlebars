@@ -3,60 +3,81 @@
 </head>
 <div class="container sustainical-page">
 	<div class="row user-specific">
-		<div class="col-md-12">
-			<div class="boxes">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="user-info">
-							<div id="user-name">Jarrod</div>
-							<div id="user-building>">Building 8</div>
-						</div>
+		<div class="col-md-4">
+			<!-- USER AVATAR, NAME, BUILDING, RANK -->
+			<div class="user-container">
+				<div class="boxes inline-user" id="user-avatar">
+					<img src="img/dash/sustainAvatar.png"/>
+				</div>
+				<div class="inline-user" id="user">
+					<div class="user-building">
+						<div class="user-details name">Jarrod</div>
+						<div class="user-details rank">4th</div>
 					</div>
-					<div class="col-sm-9">
-						<div class="profile-info">
-							<div id="goals">
-								My Goals
-							</div>
-							<div id="listed-goals">
-								<ul>
-									<li>goal 1</li>
-									<li>goal 2</li>
-									<li>goal 3</li>
-								</ul>
-								<div class="button" id="add-goal">
-									Add Goal
-								</div>
-							</div>
-						</div>
+					<div class="user-building">
+						<div class="user-details building-name">Building 8</div>
+						<div class="user-details rank">2nd</div>
 					</div>
 				</div>
+			</div>
+			<!-- BADGES -->
+			<div class="badge-container">
+				<div class="badges first-badge earned">
+				</div>
+				<div class="badges second-badge not-earned">
+				</div>
+				<div class="badges third-badge not-earned">
+				</div>
+				<div class="badges fourth-badge not-earned">
+				</div>
+			</div>
+		</div>
+		<!-- USER POINTS -->
+		<div class="col-md-4">
+			<div class="doughnut-chart">
+				<div class="point-total">
+					<div class="point-title">Jarrod's Points</div>
+					<div class="point-units">40</div>
+				</div>
+				<canvas id="user-points-chart"></canvas>
+			</div>
+		</div>
+		<!-- BUILDING POINTS -->
+		<div class="col-md-4">
+			<div class="doughnut-chart">
+				<div class="point-total">
+					<div class="point-title">Building Points</div>
+					<div class="point-units">200</div>
+				</div>
+				<canvas id="building-points-chart"></canvas>
 			</div>
 		</div>
 	</div>
 	<div class="row user-specific">
-		<div class="col-xs-6">
-			<div class="boxes">
-				<div class="user-title">
-					User Points
-				</div>
-				<div class="score">
-					24
+		<!-- GOALS -->
+		<div class="col-md-3">
+			<div class="goal boxes">
+				<div class="goal-content goal-one">
+					<div class="goal-header">Goal 1</div>
+					<div class="goal-details">Turn off the lights when I leave the room</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-6">
-			<div class="boxes">
-				<div class="user-title">
-					Building Points
+		<div class="col-md-3">
+<!-- 			<div class="goal boxes">
+				<div class="add-goal">Add a Goal</div>
+				<div class="goal-content goal-two">
+					<div class="goal-overlay"></div>
 				</div>
-				<div class="score">
-					400
-				</div>
-			</div>
+			</div> -->
+		</div>
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-3">
 		</div>
 	</div>
 	<div class="row user-specific">
-		<div class="col-md-8">
+		<div class="col-lg-8">
 			<div class="boxes overall-charts">
 				<div class="chart-info">
 					<div class="chart-text chart-header">
@@ -76,9 +97,12 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="boxes">
-				leaderboard
-			</div>
+			<table class="boxes" id="point-leaders">
+				<tr>
+					<th>Buildings</th>
+					<th>Points</th>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>

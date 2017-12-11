@@ -136,15 +136,16 @@ $(document).ready(function() {
     $(".chart-options").click(function() {
         $(".chart-options").removeClass("active-tab");
         $(this).addClass("active-tab");
-        if ($(this).html() == "week") {
-            console.log("weeeeeek");
-            setupWeek();
-        }
-        else if ($(this).html() == "day") {
-            console.log("daaaaay");
-            setupDay();
-        }
-    });
+    //     if ($(this).html() == "week") {
+    //         console.log("weeeeeek");
+    //         setupWeek();
+    //     }
+    //     else if ($(this).html() == "day") {
+    //         console.log("daaaaay");
+    //         setupDay();
+    //     }
+    // });
+});
 
 
 
@@ -234,8 +235,8 @@ var chart = new Chart(ctx, {
         },
         {
             label: "Building 4",
-            backgroundColor: '#A1C349',
-            borderColor: '#A1C349',
+            backgroundColor: '#2ecc71',
+            borderColor: '#2ecc71',
             data: kerr[2],
             fill: false
         },
@@ -281,6 +282,123 @@ var chart = new Chart(ctx, {
         }
     }
 });
+
+
+// *********************
+// POINTS DOUGHNUT CHART
+// *********************
+
+var ctxUser = document.getElementById('user-points-chart').getContext('2d');
+var userPointsChart = new Chart(ctxUser, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [40, 60],
+            backgroundColor: ['#2ecc71', '#eee']
+        }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'completed',
+            'to complete'
+        ]
+    },
+    options: {
+        cutoutPercentage: 70,
+        legend: {
+            display: false,
+        }
+    },
+});
+
+var ctxBuild = document.getElementById('building-points-chart').getContext('2d');
+var buildingPointsChart = new Chart(ctxBuild, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [10, 20, 30, 25, 15],
+            backgroundColor: ['#ff6384', '#F7CE5B', '#2ecc71', '#F0B67F', '#9AC4F8' ]
+        }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'Building 2',
+            'Building 3',
+            'Building 4',
+            'Building 7',
+            'Building 8'
+        ]
+    },
+    options: {
+        cutoutPercentage: 70,
+        legend: {
+            display: false,
+        }
+    },
+});
+
+// *******************
+// TALLYING THE POINTS
+// *******************
+
+// needs to be constantly running :(
+// let timeCheck = new Date();
+// setTimeout(604800000) milliseconds between 7 days 
+
+// only want to take from one month for now to prevent over calling API
+
+// let histDates = ['&start=2017-09-03', '&start=2017-09-10', '&start=2017-09-17', '&start=2017-09-24'];  
+// let currSum;  
+// let perc;
+// let minusPerc;
+// let multPerc;
+// kerrPoints = [[],[],[],[],[]];       
+
+
+
+//         for (let m = 0; m < 5; m ++) {
+//             for (let x = 0; x < 4; x++)
+//                 url.push(api + buildings[m] + endingPart + key + elecConsump + histDates[x] + intervals[2] + quantity + '&callback=?');
+//             $.getJSON(url[m], function(datum) {
+//                  {
+//                     currSum = datum.sum;
+//                     perc = currSum/4168;
+//                     if (perc > 1) {
+//                         points = 0;
+//                     }
+//                     else {
+//                         minusPerc = 1 - perc;
+//                         multPerc = minusPerc * 1000;
+//                         kerrPoints[m][0] = kerrPoints[m][0] + multPerc;
+//                     }
+//                 }
+// Currently a simple proportional relationship, 
+// but we are working on creating a multiplier for continuous good trends
+// 
+// from 2017-09-03 to 2017-10-01 to avoid overcalling API for now
+
+
+let sumPoints; 
+
+function localData() {              
+    $.getJSON("js/data.json", function(thePoints) {
+        console.log(thePoints.kerr[0].name);
+        for (let y = 0; y < 5; y ++) {
+            sumPoints = 0;
+            for (let p = 0; p < 5; p ++) {
+                sumPoints = thePoints.kerr[y].points[p] + sumPoints;
+            }
+            $('#point-leaders > tbody:last-child').append("<tr><td>"+thePoints.kerr[y].name+"</td><td>"+sumPoints+"</td></tr>");
+        }
+    });
+}
+
+localData();
+
+        
+
+
+
 
 
 });
