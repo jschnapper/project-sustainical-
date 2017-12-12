@@ -11,11 +11,11 @@
 				</div>
 				<div class="inline-user" id="user">
 					<div class="user-building">
-						<div class="user-details name">Jarrod</div>
+						<div class="user-details name">{{user.name}}</div>
 						<div class="user-details rank">4th</div>
 					</div>
 					<div class="user-building">
-						<div class="user-details building-name">Building 8</div>
+						<div class="user-details building-name">{{user.building}}</div>
 						<div class="user-details rank">2nd</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 		<div class="col-md-4">
 			<div class="doughnut-chart">
 				<div class="point-total">
-					<div class="point-title">Jarrod's Points</div>
+					<div class="point-title">{{user.name}}'s Points</div>
 					<div class="point-units">40</div>
 				</div>
 				<canvas id="user-points-chart"></canvas>
@@ -46,7 +46,7 @@
 		<div class="col-md-4">
 			<div class="doughnut-chart">
 				<div class="point-total">
-					<div class="point-title">Building Points</div>
+					<div class="point-title">{{user.building}} Points</div>
 					<div class="point-units">200</div>
 				</div>
 				<canvas id="building-points-chart"></canvas>
