@@ -3,6 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 //var username = // ("#username").html()
 var LocalStrategy = require('passport-local').Strategy;
+// var objectID = require('mongodb://admin:sustainical2017!@ds031681.mlab.com:31681/sustainical_db').ObjectID;
+// mongoose.connect('mongodb://admin:sustainical2017!@ds031681.mlab.com:31681/sustainical_db');
 
 var User = require('../models/user');
 
@@ -65,6 +67,7 @@ router.post('/register', function(req, res){
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
+	var building = req.body.building;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -73,6 +76,7 @@ router.post('/register', function(req, res){
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	req.checkBody('building', 'Building is required').notEmpty();
 
 	var errors = req.validationErrors();
 
@@ -85,7 +89,9 @@ router.post('/register', function(req, res){
 			name: name,
 			email:email,
 			username: username,
-			password: password
+			password: password,
+			building: building,
+			score: 0
 		});
 
 		User.createUser(newUser, function(err, user){

@@ -36,7 +36,8 @@ if (cat2) { categories.push(cat2name) };
 if (cat3) { categories.push(cat3name) };            
 if (cat4) { categories.push(cat4name) };            
 if (cat5) { categories.push(cat5name) };                     
-if (cat11) { categories.push(cat11name) };                        
+if (cat11) { categories.push(cat11name) 
+};                        
 
 var catStr = 'You answered the following questions incorrectly: ' + categories.join(', ') + '';                     
 $("#categorylist").text(catStr);                        

@@ -12,8 +12,7 @@ else {
 var cat1name = "1";            
 var cat2name = "2";            
 var cat3name = "3";                       
-var cat11name = "None";            
-            
+var cat11name = "None";
 
 var cat1 = ($("input[name=q1]:checked").val() != "d"); 
            
@@ -26,7 +25,28 @@ var cat11 = (!cat1 && !cat2 && !cat3); var categories = [];
 if (cat1) { categories.push(cat1name) };            
 if (cat2) { categories.push(cat2name) };            
 if (cat3) { categories.push(cat3name) };                         
-if (cat11) { categories.push(cat11name) };                        
+if (cat11) { categories.push(cat11name)};                       
+if (cat11) {
+	console.log();
+	// UserSchema.update(
+	//     { _id: User._id }, 
+	//     { $push: { score: 1 } },
+	//     done
+	// );
+
+	// var salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');;
+	// var newPassword = this.hashPassword("someNew password");
+	// User.update({_id: idd}, {
+	//     info: "some new info", 
+	//     password: newPassword
+	// }, function(err, affected, resp) {
+	//    console.log(resp);
+	// })
+};
+	
+	// User.score.push(1);
+	// console.log(User);
+                        
 
 var catStr = 'You answered the following questions incorrectly: ' + categories.join(', ') + '';                     
 $("#categorylist").text(catStr);                        

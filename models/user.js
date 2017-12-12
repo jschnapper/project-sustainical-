@@ -15,6 +15,15 @@ var UserSchema = mongoose.Schema({
 	},
 	name: {
 		type: String
+	},
+	building: {
+		type: String
+	},
+	score: {
+		type: Number
+	},
+	quizzes: {
+		type: {}
 	}
 });
 
@@ -28,6 +37,21 @@ module.exports.createUser = function(newUser, callback){
 	    });
 	});
 }
+
+// module.exports.updateScore = function(newUser, callback){
+// 	// bcrypt.genSalt(10, function(err, salt) {
+// 	//     bcrypt.hash(newUser.password, salt, function(err, hash) {
+// 	        newUser.score = 1;
+// 	        newUser.save(callback);
+// 	//     });
+// 	// });
+// }
+// module.exports.updateScoreByUsername = function(username, callback){
+// 	var id = req.body.id;
+// 	var query = {username: username};
+// 	User.findOne(query, callback);
+// 	User.score = 1;
+// }
 
 module.exports.getUserByUsername = function(username, callback){
 	var query = {username: username};
