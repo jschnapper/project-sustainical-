@@ -60,6 +60,11 @@ router.get('/login', function(req, res){
 	res.render('login');
 });
 
+// not logged in dash
+router.get('/nologin', function(req, res){
+	res.render('nologin');
+});
+
 // Register User
 router.post('/register', function(req, res){
 	var name = req.body.name;
