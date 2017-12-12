@@ -1,6 +1,7 @@
 $(document).ready(function() 
 {    $("#results").click(function() {                
 
+
 if (!$("input[name=q1]:checked").val() ||            
 !$("input[name=q2]:checked").val() ||            
 !$("input[name=q3]:checked").val()       
@@ -27,7 +28,10 @@ if (cat2) { categories.push(cat2name) };
 if (cat3) { categories.push(cat3name) };                         
 if (cat11) { categories.push(cat11name)};                       
 if (cat11) {
-	console.log();
+	// console.log("Hello!2");
+	// console.log(this);
+	// console.log("Hello!2");
+// $.post('mongodb://admin:sustainical2017!@ds031681.mlab.com:31681/sustainical_db', {score: 1}, "jsonp")
 	// UserSchema.update(
 	//     { _id: User._id }, 
 	//     { $push: { score: 1 } },
