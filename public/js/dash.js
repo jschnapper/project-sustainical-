@@ -293,7 +293,7 @@ var userPointsChart = new Chart(ctxUser, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [40, 60],
+            data: [0, 100],
             backgroundColor: ['#2ecc71', '#eee']
         }],
 
@@ -316,7 +316,7 @@ var buildingPointsChart = new Chart(ctxBuild, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [10, 20, 30, 25, 15],
+            data: [0, 154, 2369, 1979, 1574],
             backgroundColor: ['#ff6384', '#F7CE5B', '#2ecc71', '#F0B67F', '#9AC4F8' ]
         }],
 
